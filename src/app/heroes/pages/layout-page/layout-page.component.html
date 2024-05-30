@@ -11,6 +11,17 @@
         </button>
     </mat-toolbar>
 
+    <mat-nav-list>
+      <mat-list-item
+      *ngFor="let item of sidebarItems"
+      [routerLink]="item.url"
+      (click)="sidenav.toggle()"
+      >
+        <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+        {{ item.label }}
+      </mat-list-item>
+    </mat-nav-list>
+
   </mat-sidenav>
 
   <mat-toolbar color="primary">
@@ -28,7 +39,7 @@
   </mat-toolbar>
 
   <div class="container">
-    
+
     <router-outlet></router-outlet>
 
   </div>
@@ -38,5 +49,5 @@
 
 
 
-<router-outlet></router-outlet>
+
 

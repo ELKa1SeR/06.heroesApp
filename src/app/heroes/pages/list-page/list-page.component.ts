@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   ]
 })
 export class ListPageComponent {
+sidebarItem: any;
 
 }
