@@ -21,7 +21,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     NewPageComponent,
     SearchPageComponent,
     CardComponent,
-    HeroImagePipe
+
+    //Pipes
+    HeroImagePipe,
   ],
   imports: [
     CommonModule,
