@@ -11,7 +11,7 @@
         <br>
         <mat-chip-listbox>
           <mat-chip *ngFor="let name of hero.characters.split(',') | slice:0:3">
-            {{hero.characters}}
+            {{name}}
           </mat-chip>
         </mat-chip-listbox>
       </p>
@@ -34,8 +34,8 @@
       <button
       mat-button
       mat-raised
-      color="primary"
-      [routerLink]="['/heroes/edit', hero.id]">
+
+      [routerLink]="['/heroes', hero.id]">
       <mat-icon class="mat-18">more_horiz</mat-icon>
        Más
      </button>
