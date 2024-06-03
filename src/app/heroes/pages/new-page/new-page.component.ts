@@ -5,6 +5,7 @@ import { HeroesService } from '../../services/heroes.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-new-page',
@@ -35,6 +36,7 @@ export class NewPageComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router : Router,
     private snackbar: MatSnackBar,
+    public dialog: MatDialog,
   ){}
 
 
@@ -75,6 +77,17 @@ export class NewPageComponent implements OnInit {
       })
   }
 
+  onDeleteHero(){
+    if(!this.currentHero.id) throw Error('Hero id is required');
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      data: this.heroForm.value
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
 
     showSnackbar( message: string): void{
       this.snackbar.open( message, 'done', {
